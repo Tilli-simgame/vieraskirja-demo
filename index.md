@@ -34,13 +34,13 @@ title: Lehmuskartanon Ratsastuskoulu
 <div class="nav-section">
   <span class="nav-title">Yleistä tallista</span>
   <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/henkilokunta">Henkilökunta</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/tarhaus">Tarhaus</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/pohjapiirrokset">Pohjapiirrokset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/paivaohjelma">Päiväohjelma</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/muut-elaimet">Muut eläimet</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/laidunjarjestykset">Laidunjärjestykset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/karsinajarjestykset">Karsinajärjestykset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/henkilokunta' | relative_url }}">Henkilökunta</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/tarhaus' | relative_url }}">Tarhaus</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/pohjapiirrokset' | relative_url }}">Pohjapiirrokset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/paivaohjelma' | relative_url }}">Päiväohjelma</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/muut-elaimet' | relative_url }}">Muut eläimet</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/laidunjarjestykset' | relative_url }}">Laidunjärjestykset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/karsinajarjestykset' | relative_url }}">Karsinajärjestykset</a></li>
   </ul>
 </div>
 
@@ -51,10 +51,10 @@ title: Lehmuskartanon Ratsastuskoulu
 <div class="nav-section">
   <span class="nav-title">Hevoset</span>
   <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hevoset/tallin-hevoset">Tallin hevoset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hevoset/yksityiset">Yksityiset hevoset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hevoset/kasvatit">Tallin kasvatit</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hevoset/myytavat">Myytävät hevoset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/tallin-hevoset' | relative_url }}">Tallin hevoset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/yksityiset' | relative_url }}">Yksityiset hevoset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/kasvatit' | relative_url }}">Tallin kasvatit</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/myytavat' | relative_url }}">Myytävät hevoset</a></li>
   </ul>
 </div>
 
@@ -65,9 +65,9 @@ title: Lehmuskartanon Ratsastuskoulu
 <div class="nav-section">
   <span class="nav-title">Tallin toimintaa</span>
   <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/toiminta/ratsastustunnit">Ratsastustunnit</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/toiminta/leirit">Leirit ja vaellukset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/toiminta/kilpailut">Kilpailut</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/ratsastustunnit' | relative_url }}">Ratsastustunnit</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/leirit' | relative_url }}">Leirit ja vaellukset</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/kilpailut' | relative_url }}">Kilpailut</a></li>
   </ul>
 </div>
 
@@ -78,8 +78,8 @@ title: Lehmuskartanon Ratsastuskoulu
 <div class="nav-section">
   <span class="nav-title">Hoitajat ja työntekijät</span>
   <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hoitajat/tehtavat">Hoitajat ja tehtävät</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="/hoitajat/paivakirjat">Hoitopäiväkirjat</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hoitajat/tehtavat' | relative_url }}">Hoitajat ja tehtävät</a></li>
+    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hoitajat/paivakirjat' | relative_url }}">Hoitopäiväkirjat</a></li>
   </ul>
 </div>
 
@@ -90,10 +90,10 @@ title: Lehmuskartanon Ratsastuskoulu
 <div class="nav-section">
   <span class="nav-title">Muuta tärkeää</span>
   <ul class="nav-list">
-    <li class="nav-item">★ <a href="/muuta/ystavyystallit">Ystävyystallit</a></li>
-    <li class="nav-item">★ <a href="/vieraskirja">Vieraskirja</a> <a href="/vieraskirja"><img src="{{ '/assets/img/guest-s.gif' | relative_url }}" alt="Vieraskirja" border="0" style="vertical-align: middle; margin-left: 5px;"></a></li>
-    <li class="nav-item">★ <a href="/ilmoitustaulu">Ilmoitustaulu</a></li>
-    <li class="nav-item">★ <a href="/copyt">Copyrights</a></li>
+    <li class="nav-item">★ <a href="{{ '/muuta/ystavyystallit' | relative_url }}">Ystävyystallit</a></li>
+    <li class="nav-item">★ <a href="{{ '/vieraskirja' | relative_url }}">Vieraskirja</a> <a href="{{ '/vieraskirja' | relative_url }}"><img src="{{ '/assets/img/guest-s.gif' | relative_url }}" alt="Vieraskirja" border="0" style="vertical-align: middle; margin-left: 5px;"></a></li>
+    <li class="nav-item">★ <a href="{{ '/ilmoitustaulu' | relative_url }}">Ilmoitustaulu</a></li>
+    <li class="nav-item">★ <a href="{{ '/copyt' | relative_url }}">Copyrights</a></li>
   </ul>
 </div>
 

@@ -1,9 +1,9 @@
 title: Lehmuskartanon Ratsastuskoulu
 email: virtuaali@proton.me
 description: >-
-  Tervetuloa virtuaalitallillemme! Geocities-tyylinen koti hevosille.
-baseurl: ""
-url: "https://example.github.io"
+  Tervetuloa virtuaalitallillemme!
+baseurl: "/lehmuskartanon-ratastuskoulu"
+url: "https://tilli-simgame.github.io"
 
 # Build settings
 theme: minima # We will override this with our own layouts
