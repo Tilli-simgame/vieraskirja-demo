@@ -1,0 +1,381 @@
+:root {
+  --bg-image: url('../img/bluey.jpg');
+  --bg-color: #add8e6;
+  --text-color: #ff00ff;
+  --heading-color: #0000ff;
+  --link-color: #0000ff;
+  --link-visited-color: #800080;
+  --link-hover-bg: #ffff00;
+  --link-hover-text: #000;
+  --main-content-bg: rgba(255, 255, 255, 0.8);
+  --border-color: #0000ff;
+  --shadow-color: #ff00ff;
+}
+
+body.theme-yleista {
+  --bg-image: url('../img/Pine_.jpg');
+  --bg-color: #2d5a27;
+  --text-color: #ffffff;
+  --heading-color: #ffff00;
+  --link-color: #ffff00;
+  --link-visited-color: #98fb98;
+  --border-color: #ffff00;
+  --shadow-color: #000000;
+  --main-content-bg: rgba(0, 0, 0, 0.6);
+}
+
+body.theme-horses {
+  --bg-image: url('../img/fondo_purplestars.gif');
+  --bg-color: #2b0040;
+  --text-color: #ffffff;
+  --heading-color: #e0b0ff;
+  --link-color: #f0e6ff;
+  --link-visited-color: #d8bfd8;
+  --border-color: #e0b0ff;
+  --shadow-color: #4b0082;
+  --main-content-bg: rgba(43, 0, 64, 0.7);
+}
+
+body.theme-toiminta {
+  --bg-image: url('../img/bg_prettyinpink.gif');
+  --bg-color: #ffc0cb;
+  --text-color: #d10074;
+  --heading-color: #ff1493;
+  --link-color: #c71585;
+  --link-visited-color: #db7093;
+  --border-color: #ff69b4;
+  --shadow-color: #ffb6c1;
+  --main-content-bg: rgba(255, 255, 255, 0.85);
+}
+
+body.theme-hoitajat {
+  --bg-image: url('../img/stars5.gif');
+  --bg-color: #000022;
+  --text-color: #ffffff;
+  --heading-color: #00ffff;
+  --link-color: #ffff00;
+  --link-visited-color: #ffd700;
+  --border-color: #00ffff;
+  --shadow-color: #000080;
+  --main-content-bg: rgba(0, 0, 34, 0.75);
+}
+
+body.theme-muuta {
+  --bg-image: url('../img/apple.gif');
+  --bg-color: #e8f5e9;
+  --text-color: #2e7d32;
+  --heading-color: #c62828;
+  --link-color: #c62828;
+  --link-visited-color: #8e24aa;
+  --border-color: #43a047;
+  --shadow-color: #a5d6a7;
+  --main-content-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-repeat: repeat;
+  color: var(--text-color);
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--heading-color);
+  font-weight: bold;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+h2,
+h3 {
+  color: var(--heading-color);
+  font-weight: bold;
+}
+
+a {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited-color);
+}
+
+a:hover {
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-text);
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: #808080;
+  width: 60%;
+  margin: 20px auto;
+}
+
+body.theme-yleista hr {
+  background-image: url('../img/vine11.gif');
+  background-repeat: repeat-x;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  height: 60px;
+  width: 100%;
+  margin: 40px auto;
+  background-size: contain;
+}
+
+body.theme-horses hr {
+  background-image: url('../img/rainbowhearts2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  height: 15px;
+  width: 100%;
+  margin: 15px auto;
+  background-size: contain;
+}
+
+body.theme-toiminta hr {
+  background-image: url('../img/glitterpink.gif');
+  background-repeat: repeat-x;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  height: 30px;
+  width: 100%;
+  margin: 20px auto;
+  background-size: contain;
+}
+
+body.theme-hoitajat hr {
+  background-image: url('../img/bluegrass.gif');
+  background-repeat: repeat-x;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  height: 40px;
+  width: 100%;
+  margin: 30px auto;
+  background-size: contain;
+}
+
+body.theme-muuta hr {
+  background-image: url('../img/vine25.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  height: 40px;
+  width: 100%;
+  margin: 20px auto;
+  background-size: contain;
+}
+
+.main-content {
+  background-color: var(--main-content-bg);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  box-shadow: 5px 5px 0px var(--shadow-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+body.theme-hoitajat .main-content {
+  border: 4px double var(--border-color);
+}
+
+body.theme-horses .main-content {
+  background-color: var(--main-content-bg);
+  background-clip: padding-box;
+  /* Ensures background doesn't show under the border hearts */
+  /* Use border-image with the 3x3 grid image (99x99px) */
+  border: 22px solid transparent;
+  border-image-source: url('../img/heart-border.png');
+  border-image-slice: 33;
+  /* 99px / 3 = exactly 33px */
+  border-image-width: 22px;
+  border-image-repeat: round;
+
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+
+  /* Reset mask/filter just in case */
+  -webkit-mask: none;
+  mask: none;
+  filter: none;
+}
+
+body.theme-yleista .main-content img {
+  border: 3px double var(--border-color);
+  padding: 4px;
+  background-color: #fff;
+  margin: 15px auto 5px auto;
+  display: block;
+  max-width: 100%;
+}
+
+.main-content small {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+body.theme-yleista .main-content ul {
+  list-style: none;
+  /* Hide default bullets */
+  padding-left: 0;
+}
+
+body.theme-yleista .main-content li {
+  position: relative;
+  padding-left: 25px;
+  list-style: none;
+}
+
+body.theme-yleista .main-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 14px;
+  /* Reduced size */
+  height: 14px;
+  /* Reduced size */
+  background-image: url('../img/yellow1.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body.theme-toiminta .main-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body.theme-toiminta .main-content li {
+  position: relative;
+  padding-left: 25px;
+  list-style: none;
+}
+
+body.theme-toiminta .main-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  background-image: url('../img/pink.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body.theme-hoitajat .main-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body.theme-hoitajat .main-content li {
+  position: relative;
+  padding-left: 25px;
+  list-style: none;
+}
+
+body.theme-hoitajat .main-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../img/star72.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.main-content ul,
+.main-content ol {
+  text-align: left;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.main-content ol {
+  padding-left: 40px;
+  /* Keep standard padding for ordered lists */
+}
+
+.main-content li {
+  margin-bottom: 8px;
+}
+
+.divider-icon {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+.nav-section {
+  text-align: left;
+  display: inline-block;
+  width: 300px;
+  margin: 10px;
+}
+
+.nav-title {
+  font-weight: bold;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-item img {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.nav-item a {
+  color: var(--link-color);
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+.footer-info {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--text-color);
+  margin-top: 30px;
+}
