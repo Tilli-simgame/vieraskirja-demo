@@ -29,7 +29,7 @@
                 {% if main_image %}
                 <div class="profile-main-image" style="margin-bottom: 5px;">
                     <img id="main-horse-image" src="{{ main_image.url }}" alt="{{ page.name }}"
-                        style="max-width: 450px; border: 3px double var(--border-color); padding: 5px; background: #fff;">
+                        style="width: 100%; max-width: 450px; border: 3px double var(--border-color); padding: 5px; background: #fff;">
                 </div>
                 <div id="image-caption-container" style="margin-bottom: 20px; min-height: 1.2em;">
                     <div id="image-title" style="font-weight: bold; color: var(--heading-color);">{{ main_image.title }}
@@ -74,7 +74,9 @@
 
                 <ul>
                     {% if page.registerId %}
-                    <li><strong>Rekisterinumero:</strong> {{ page.registerId }}</li>
+                    <li><strong>Rekisterinumero:</strong> <a
+                            href="https://virtuaalihevoset.net/virtuaalihevoset/hevonen/{{ page.registerId }}"
+                            target="_blank">{{ page.registerId }}</a></li>
                     {% endif %}
                 </ul>
 
