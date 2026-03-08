@@ -142,6 +142,118 @@
 
                 <p><a href="{{ '/hevoset/tallin-hevoset' | relative_url }}">&larr; Takaisin hevoslistaan</a></p>
 
+                <hr>
+
+                <link rel="stylesheet" href="{{ '/assets/css/guestbook.css' | relative_url }}">
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+                <div class="horse-diary-container">
+                    <div class="horse-diary-form">
+                        <h3>Hevosen hoitopäikky</h3>
+                        <p style="font-size: 0.9em; margin-bottom: 10px;">Kirjoita hevosen kuulumisia tai
+                            hoitotoimenpiteitä!</p>
+                        <form id="diary-form">
+                            <div class="form-group">
+                                <label for="diary-name">Nimi:</label>
+                                <input type="text" id="diary-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="diary-message">Viesti:</label>
+                                <textarea id="diary-message" name="message" required></textarea>
+                            </div>
+                            <!-- Turnstile Widget -->
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAACn-0CzwlsyjJaLi"
+                                style="margin-bottom: 15px;"></div>
+                            <button type="submit" class="submit-btn" id="diary-submit-btn">Tallenna merkintä</button>
+                        </form>
+                        <div id="diary-form-status" style="margin-top: 10px; font-weight: bold;"></div>
+                    </div>
+
+                    <div class="messages-list" id="diary-list">
+                        <div class="loading">Ladataan hoitomerkintöjä...</div>
+                    </div>
+                </div>
+
+                <script>
+                    (function () {
+                        const API_URL = 'https://guestbook.anniina-sipria.workers.dev/api/horse-diary'; // PÄIVITÄ TÄMÄ MYÖHEMMIN
+                        const HORSE_SLUG = "{{ page.url | split: '/' | last | replace: '.html', '' }}";
+
+                        const diaryList = document.getElementById('diary-list');
+                        const diaryForm = document.getElementById('diary-form');
+                        const diaryStatus = document.getElementById('diary-form-status');
+
+                        async function fetchDiary() {
+                            try {
+                                const response = await fetch(`${API_URL}?horse=${HORSE_SLUG}`);
+                                if (!response.ok) throw new Error('Haku epäonnistui');
+                                const messages = await response.json();
+
+                                if (messages.length === 0) {
+                                    diaryList.innerHTML = '<div class="loading">Ei vielä merkintöjä.</div>';
+                                    return;
+                                }
+
+                                diaryList.innerHTML = messages.map(m => `
+                                    <div class="message-item">
+                                        <div class="message-header">
+                                            <span>${escapeHtml(m.name)}</span>
+                                            <span class="message-date">${new Date(m.created_at).toLocaleDateString('fi-FI')}</span>
+                                        </div>
+                                        <div class="message-text">${escapeHtml(m.message)}</div>
+                                    </div>
+                                `).join('');
+                            } catch (err) {
+                                diaryList.innerHTML = '<div class="error-message">Virhe merkintöjen latauksessa.</div>';
+                                console.error(err);
+                            }
+                        }
+
+                        diaryForm.addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const submitBtn = document.getElementById('diary-submit-btn');
+                            submitBtn.disabled = true;
+                            diaryStatus.textContent = 'Tallennetaan...';
+
+                            const data = {
+                                horse_slug: HORSE_SLUG,
+                                name: document.getElementById('diary-name').value,
+                                message: document.getElementById('diary-message').value,
+                                'cf-turnstile-response': document.querySelector('#diary-form [name="cf-turnstile-response"]').value
+                            };
+
+                            try {
+                                const response = await fetch(API_URL, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(data)
+                                });
+
+                                if (!response.ok) throw new Error('Lähetys epäonnistui');
+
+                                diaryStatus.style.color = 'green';
+                                diaryStatus.textContent = 'Merkintä tallennettu!';
+                                diaryForm.reset();
+                                fetchDiary();
+                            } catch (err) {
+                                diaryStatus.style.color = 'red';
+                                diaryStatus.textContent = 'Virhe tallennuksessa.';
+                                console.error(err);
+                            } finally {
+                                submitBtn.disabled = false;
+                            }
+                        });
+
+                        function escapeHtml(text) {
+                            const div = document.createElement('div');
+                            div.textContent = text;
+                            return div.innerHTML;
+                        }
+
+                        fetchDiary();
+                    })();
+                </script>
+
             </div>
         </div>
     </center>

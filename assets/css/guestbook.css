@@ -1,0 +1,103 @@
+/* Vieraskirjan ja hoitopäikyn tyylit */
+
+.guestbook-container,
+.horse-diary-container {
+    margin-top: 20px;
+    text-align: left;
+    background: #fff;
+    border: 3px double var(--border-color, #ccc);
+    padding: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guestbook-form,
+.horse-diary-form {
+    margin-bottom: 30px;
+    border-bottom: 2px dashed var(--border-color, #ccc);
+    padding-bottom: 20px;
+}
+
+.guestbook-form h3,
+.horse-diary-form h3 {
+    margin-top: 0;
+    color: var(--heading-color, #000);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: var(--link-color, #0000ff);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: var(--visited-link-color, #551a8b);
+}
+
+.messages-list {
+    margin-top: 20px;
+}
+
+.message-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--border-color, #ccc);
+}
+
+.message-header {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-date {
+    color: #666;
+    font-weight: normal;
+}
+
+.message-text {
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.loading,
+.error-message {
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.error-message {
+    color: red;
+}
