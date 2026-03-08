@@ -11,6 +11,12 @@ SPACE_ID      = ENV['CONTENTFUL_SPACE_ID']
 ACCESS_TOKEN  = ENV['CONTENTFUL_ACCESS_TOKEN']
 STABLE_NAME   = ENV['STABLE_NAME'] || 'Lehmuskartanon Ratsastuskoulu'
 OUTPUT_DIR    = '_hevoset'
+ 
+ GENDER_MAP = {
+   'stallion' => 'ori',
+   'gelding'  => 'ruuna',
+   'mare'     => 'tamma'
+ }.freeze
 
 abort('Missing CONTENTFUL_SPACE_ID') unless SPACE_ID
 abort('Missing CONTENTFUL_ACCESS_TOKEN') unless ACCESS_TOKEN
@@ -207,8 +213,14 @@ entries.each do |entry|
     "name: #{name.inspect}",
   ]
   frontmatter_lines << "shortname: #{entry.fields[:shortname].inspect}"           if entry.fields[:shortname]
-  frontmatter_lines << "gender: #{entry.fields[:gender].inspect}"                 if entry.fields[:gender]
-  frontmatter_lines << "breed: #{entry.fields[:breed].inspect}"                   if entry.fields[:breed]
+   
+   if entry.fields[:gender]
+     gender_en = entry.fields[:gender].to_s.downcase
+     gender_fi = GENDER_MAP[gender_en] || gender_en
+     frontmatter_lines << "gender: #{gender_fi.inspect}"
+   end
+   
+   frontmatter_lines << "breed: #{entry.fields[:breed].inspect}"                   if entry.fields[:breed]
   frontmatter_lines << "color: #{entry.fields[:color].inspect}"                   if entry.fields[:color]
   frontmatter_lines << "height: #{entry.fields[:withers_height]}"                 if entry.fields[:withers_height]
   frontmatter_lines << "birthday: #{birthday_str.inspect}"                        if birthday_str

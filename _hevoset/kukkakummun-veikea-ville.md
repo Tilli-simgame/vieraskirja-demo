@@ -3,7 +3,7 @@ layout: horse
 title: "Kukkakummun Veikeä Ville"
 name: "Kukkakummun Veikeä Ville"
 shortname: "Ville"
-gender: "gelding"
+gender: "ruuna"
 breed: "Shetlanninponi"
 color: "rautias"
 height: 107.0
