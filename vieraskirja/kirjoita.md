@@ -26,8 +26,8 @@ theme: muuta
                 <input type="email" id="email" name="email" placeholder="Sähköpostiosoitteesi (valinnainen)">
             </div>
             <div class="form-group">
-                <label for="website">Tallisi nimi:</label>
-                <input type="text" id="website" name="website" placeholder="Tallisi nimi">
+                <label for="website">Talli:</label>
+                <input type="text" id="website" name="website" placeholder="Talli">
             </div>
             <div class="form-group">
                 <label for="url">Tallin URL:</label>

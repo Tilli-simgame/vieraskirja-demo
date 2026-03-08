@@ -94,7 +94,6 @@
 /* Form styling - kept simple but functional */
 .guestbook-form,
 .horse-diary-form {
-    background: #f0f0ff;
     border: 1px solid #999;
     padding: 20px;
     margin-bottom: 40px;
@@ -124,7 +123,7 @@
 }
 
 .submit-btn {
-    background: #e0e0ff;
+    background: #fff;
     border: 1px solid #666;
     padding: 5px 15px;
     cursor: pointer;
@@ -133,7 +132,8 @@
 }
 
 .submit-btn:hover {
-    background: #ccccff;
+    background: #f0f0ff;
+    /* Subtle tint on hover instead of full purple */
 }
 
 /* Navigation links (Sivut, Kirjoita jne) */

@@ -11,7 +11,7 @@ theme: muuta
 
     <div class="gb-nav">
         <a href="#messages-list">Lue viestejä</a>
-        <a href="{{ '/vieraskirja/kirjoita.html' | relative_url }}" style="font-weight: bold; border: 1px solid #4b0082; padding: 2px 8px; border-radius: 4px; background: #e0e0ff;">Kirjoita vieraskirjaan</a>
+        <a href="{{ '/vieraskirja/kirjoita.html' | relative_url }}" style="font-weight: bold; border: 1px solid #4b0082; padding: 2px 8px; border-radius: 4px;">Kirjoita vieraskirjaan</a>
         <span>Yhteensä <span id="msg-count">...</span> viestiä</span>
     </div>
 
