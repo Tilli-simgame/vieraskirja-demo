@@ -53,6 +53,29 @@ Tarjoamme tunteja kolmella eri tasolla:
 
 <hr>
 
+## Viikkojen teemat
+
+### Syyslukukauden teemat
+
+| Viikot | Koulu (KO) | Esteet (ES) | Kenttä (KE) | Vikellys (VK) |
+| :--- | :--- | :--- | :--- | :--- |
+| **31–34** | **Teema: Perusteet**<br>I: Perusistunta & avut<br>II: Temponvaihtelut käynnissä/ravissa<br>III: Hevosen suoruus ja kantoapu | **Teema: Tasapaino**<br>I: Kevyt istunta puomeilla<br>II: Rytmin säilytys linjalla<br>III: Myötäämisen ajoitus | **Teema: Maasto-otteet**<br>I: Maastoistunta tasaisella<br>II: Vauhdin säätely laukassa<br>III: Maastoesteiden lähestymiset | **Teema: Alkeet**<br>I: Selkäännousu ja perusistunta<br>II: Polviseisonta (käynti)<br>III: Liikkeet ravissa |
+| **35–38** | **Teema: Tiet ja ohjaus**<br>I: Kulmat ja isot ympyrät<br>II: Asetus ja kiemurat<br>III: Kulmien ratsastus (kokoaminen) | **Teema: Kavaletit**<br>I: Ohjaus kavalettien yli<br>II: Askeleen säätö (pitkä/lyhyt)<br>III: Kavaletit ympyrällä | **Teema: Vesi & maasto**<br>I: Veteen tutustuminen<br>II: Vedestä ulos nousu (hyppy)<br>III: Sarjaesteet vedessä | **Teema: Voima**<br>I: Jalanheitot ja "mylly"<br>II: Vaaka ja seisonta (käynti)<br>III: Sakset ja voltit |
+| **39–42** | **Teema: Laukka**<br>I: Laukannostot ja tasapaino<br>II: Laukka-käynti-siirtymät<br>III: Vastalaukka ja laukan laatu | **Teema: Tekniikka**<br>I: Yksittäinen ristikko<br>II: Pystyesteet ja lähestyminen<br>III: Okserit ja sarjavälit | **Teema: Korkeuserot**<br>I: Tasapaino alamäissä<br>II: Hypyt ylämäkeen<br>III: Haut ja banketit (pudotukset) | **Teema: Vauhti**<br>I: Tasapainon säilytys ravissa<br>II: Laukassa istuminen<br>III: Liikkeiden yhdistäminen laukassa |
+| **43–46** | **Teema: Notkeus**<br>I: Pysähdykset ja peruutus<br>II: Pohkeenväistöjen alkeet<br>III: Avo- ja sulkutaivutukset | **Teema: Sarjat**<br>I: In-and-out -esteet<br>II: Sarjaesteiden välit<br>III: Tekniset linjat (kaarevat) | **Teema: Rohkeus**<br>I: Pienet tukit ja risuaidat<br>II: Kapeat maastoesteet<br>III: Kulmaesteet ja tarkkuus | **Teema: Luovuus**<br>I: Liikesarjojen opettelu<br>II: Käänteinen istunta<br>III: Kahden hengen liikkeet |
+| **47–51** | **Kauden päätös**<br>Kaikki tasot: Kouluohjelmat (C, B tai A) | **Kauden päätös**<br>Kaikki tasot: Estekilpailut / Rataratsastus | **Kauden päätös**<br>Kaikki tasot: Maastotaitorata | **Kauden päätös**<br>Kaikki tasot: Kür (musiikkiohjelma) |
+
+### Kevätlukukauden teemat
+
+| Viikot | Koulu (KO) | Esteet (ES) | Kenttä (KE) | Vikellys (VK) |
+| :--- | :--- | :--- | :--- | :--- |
+| **2–6** | **Teema: Sivuttaisliikkeet**<br>I: Etuosan väistättäminen<br>II: Pohkeenväistöt ravissa<br>III: Sulkuväistöt laukassa | **Teema: Kontrolli**<br>I: Pysähdykset esteen jälkeen<br>II: Tiukat käännökset<br>III: Uusintatiet ja tempo | **Teema: Tekniikka**<br>I: Hallittu laukka maastossa<br>II: Kapeat linjat maneesissa<br>III: Maastoesteiden hienosäätö | **Teema: Notkeus**<br>I: Venyttelyt hevosen selässä<br>II: Silta ja joutsen<br>III: Akrobatia ja hypyt alas |
+| **7–11** | **Teema: Muoto ja kuuliaisuus**<br>I: Hevonen ohjan ja pohkeen välissä<br>II: Peräänanto ja asetus<br>III: Kokoaminen ja kevennys | **Teema: Rytmi**<br>I: Laukka puomeilla<br>II: Tasainen laukka radalla<br>III: Sarjavälien muokkaus | **Teema: Kestävyys**<br>I: Pitkä maastolenkki (käynti/ravi)<br>II: Intervallitreeni (laukka)<br>III: Tempoesteet (mittarilla) | **Teema: Tasapaino**<br>I: Seisonta ilman käsiä (käynti)<br>II: Polviseisonta ravissa<br>III: Seisonta laukassa |
+| **12–16** | **Teema: Siirtymiset**<br>I: Käynti-ravi-käynti<br>II: Laukka-käynti-laukka<br>III: Laukka-seis-laukka | **Teema: Erikoisesteet**<br>I: Värikkäät puomit<br>II: Muuri ja lankku<br>III: Vesiesteet (esteenä) | **Teema: Maastorata**<br>I: Pienet maastolinjat<br>II: Yhdistelmäesteet<br>III: Vaativa tekninen rata | **Teema: Voima**<br>I: Jalkojen asennot ja pito<br>II: Dynaamiset nousut<br>III: Pystyseisonta ja vaaka |
+| **17–22** | **Teema: Kilpailuvalmistelu**<br>I: Helppo C harjoitus<br>II: Helppo B harjoitus<br>III: Helppo A / Vaativa B | **Teema: Ratatreeni**<br>I: 50–60 cm rata<br>II: 80–90 cm rata<br>III: 100+ cm rata | **Teema: Kausitesti**<br>I: Maastoestetesti (mini)<br>II: Tutustumisluokan rata<br>III: Harrasteluokan rata | **Teema: Esitys**<br>I: Ryhmäohjelma<br>II: Parivikellys<br>III: Yksilö-Kür |
+
+<hr>
+
 ## Osallistuminen ja pistejärjestelmä
 Talli järjestää sekä passiivisia että aktiivisia tunteja. Passiivisilla tunneilla ilmoittaudut haluamaasi ryhmään, muuta ei tarvitakaan, mutta toisaalta et saa näistä tunneista palautetta. Passiiviset tunnit tunnetaan myös "nimilista" tunteina. Aktiivisilla tunneilla sinun tulee osallistua tunnin tehtäviin ja saat palautteen suorituksistasi. Tuntitarinat kirjoitetaan [tuntikirjaan]({{ '/toiminta/tuntikirja.html' | relative_url }}). Tunntitarinan voi kirjoittaa koska vaan, mutta se pitää kirjoittaa ennen seuraavan viikon tuntien alkua! Jos et kirjoita tuntitarinaa ajoissa, et saa pisteitä kyseisestä tunnista. Pisteillä voit ostaa tallikaupasta kaikkea kivaa. Jos tämä vaikutti epäselvältä, kokeile irtotuntia niin näet miten hauskaa ja helppoa tämä on!
 
@@ -143,3 +166,5 @@ Alla on lista aktiivisista tuntilaisistamme sekä heidän keräämänsä pisteet
 Oletko osallistumassa tunnille? Kirjoita tuntitarinasi tuntikirjaan ja saat pisteitä! Lue muiden kirjoituksia ja kirjaa omasi tuntikirjaan.
 
 [Lue tuntikirjaa]({{ '/toiminta/tuntikirja.html' | relative_url }}) - [ Kirjaa tunti]({{ '/toiminta/tuntikirja/kirjoita.html' | relative_url }})
+
+
