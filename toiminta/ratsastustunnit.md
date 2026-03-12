@@ -76,6 +76,17 @@ Tarjoamme tunteja kolmella eri tasolla:
 
 <hr>
 
+## Tuntirunko
+
+- **Alkuverkka (n. 15 min)**
+-- Käynti, ravi ja kevyt laukka. Tavoitteena hevosen notkistaminen ja ratsastajan istunnan herättely
+- **Teemaosuus (n. 30 min)**
+-- Tehtävät: tarkista teeman mukainen tehtävä viikkojen teemojen kuvauksista
+- **Loppuverkka (n. 10-15 min)**
+-- Pitkin ohjin käyntiä, hevosen rentouttaminen ja kehonhuolto
+
+<hr>
+
 ## Osallistuminen ja pistejärjestelmä
 Talli järjestää sekä passiivisia että aktiivisia tunteja. Passiivisilla tunneilla ilmoittaudut haluamaasi ryhmään, muuta ei tarvitakaan, mutta toisaalta et saa näistä tunneista palautetta. Passiiviset tunnit tunnetaan myös "nimilista" tunteina. Aktiivisilla tunneilla sinun tulee osallistua tunnin tehtäviin ja saat palautteen suorituksistasi. Tuntitarinat kirjoitetaan [tuntikirjaan]({{ '/toiminta/tuntikirja.html' | relative_url }}). Tunntitarinan voi kirjoittaa koska vaan, mutta se pitää kirjoittaa ennen seuraavan viikon tuntien alkua! Jos et kirjoita tuntitarinaa ajoissa, et saa pisteitä kyseisestä tunnista. Pisteillä voit ostaa tallikaupasta kaikkea kivaa. Jos tämä vaikutti epäselvältä, kokeile irtotuntia niin näet miten hauskaa ja helppoa tämä on!
 
