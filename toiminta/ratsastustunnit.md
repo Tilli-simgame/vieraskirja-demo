@@ -54,3 +54,11 @@ Voit ilmoittautua tunneille suoraan tuntikalenterimme kautta. Valitse sinulle so
 Mikäli osallistut kerralla koko kaudelle (syksy/kevät) lähetämme sähköpostiisi automaattisesti viikottain tehtävät ja osallistumislinkin jota kautta pääset suorittamaan tuntisi.
 
 Tunneille tulee ilmoittautua viimeistään päivää ennen (mikäli osallistut irtotunnille), jotta voimme varmistaa tuntien sujuvuuden ja tehtävien järjestämisen, sekä ehdimme jakaa kullekin osallistujalle hevoset. Mikäli et pääse osallistumaan, ilmoitathan peruutuksesta mahdollisimman pian, jotta joku muu voi ottaa paikkasi.
+
+<hr>
+
+## Tuntikirja
+
+Kävitkö tunnilla? Jaa tuntitarinasi muille! Lue muiden kokemuksia ja kirjaa omasi tuntikirjaan.
+
+[📖 Lue tuntikirjaa]({{ '/toiminta/tuntikirja.html' | relative_url }}) &nbsp;|&nbsp; [✏️ Kirjaa tunti]({{ '/toiminta/tuntikirja/kirjoita.html' | relative_url }})

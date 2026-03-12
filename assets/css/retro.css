@@ -506,7 +506,7 @@ body.theme-horse-profile .main-content li::before {
   z-index: 1;
   background-color: #fa00cc;
   mix-blend-mode: multiply;
-  opacity: 0.12;
+  opacity: 0.10;
 }
 
 /* Grain texture - own element inside .retro-film-container */
@@ -519,7 +519,7 @@ body.theme-horse-profile .main-content li::before {
   pointer-events: none;
   z-index: 3;
   background-image: url("https://www.transparenttextures.com/patterns/dotnoise-light-grey.png");
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 /* Vignette Blur (edges only) */

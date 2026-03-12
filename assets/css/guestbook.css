@@ -131,12 +131,17 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     flex: 1;
     max-width: 400px;
     /* Prevent fields from being too long */
     border: 1px solid #999;
     padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    background: #fff;
+    color: #333;
 }
 
 .form-group textarea {
