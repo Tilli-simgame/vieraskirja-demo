@@ -13,12 +13,8 @@ Tallin omat hevoset, joita käytetään ratsastuskoulun tunneilla ja kilpailuiss
 {% if site.hevoset.size > 0 %}
 {% assign sorted_horses = site.hevoset | sort: "name" %}
 {% for horse in sorted_horses %}
-### [{{ horse.name }}]({{ horse.url | relative_url }})
-{% if horse.shortname %}*"{{ horse.shortname }}"*{% endif %}
-
-{% if horse.breed %}**{{ horse.breed }}**{% endif %}{% if horse.gender %} · {{ horse.gender }}{% endif %}{% if horse.height %} · {{ horse.height }} cm{% endif %}
-
-{% if horse.short_description %}{{ horse.short_description }}{% endif %}
+[{{ horse.name }}{% if horse.shortname %} “{{ horse.shortname }}”{% endif %}]({{ horse.url | relative_url }}): {{ horse.breed | downcase }}-{{ horse.gender }}{% if horse.height %}, {{ horse.height | floor }}cm{% endif %}<br />
+"{{ horse.short_description | strip_html | strip }}"
 
 <hr>
 {% endfor %}

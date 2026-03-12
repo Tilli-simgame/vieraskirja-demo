@@ -36,6 +36,13 @@ body.theme-horses {
   --main-content-bg: rgba(43, 0, 64, 0.7);
 }
 
+body.theme-horses a {
+  background-color: #e6e6fa; /* Lavender */
+  color: #2b0040; /* Dark purple text for contrast on light background */
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
 body.theme-horse-profile {
   --bg-image: url('../img/pastelstarz.gif');
   --bg-color: #fce4ff;

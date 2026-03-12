@@ -92,7 +92,7 @@ title: Lehmuskartanon Ratsastuskoulu
   <ul class="nav-list">
     <li class="nav-item">★ <a href="{{ '/muuta/ystavyystallit' | relative_url }}">Ystävyystallit</a></li>
     <li class="nav-item">★ <a href="{{ '/vieraskirja' | relative_url }}">Vieraskirja</a> <a href="{{ '/vieraskirja' | relative_url }}"><img src="{{ '/assets/img/guest-s.gif' | relative_url }}" alt="Vieraskirja" border="0" style="vertical-align: middle; margin-left: 5px;"></a></li>
-    <li class="nav-item">★ <a href="{{ '/chat' | relative_url }}">Tallichat</a> <img src="{{ '/assets/img/small_horse_icon.gif' | relative_url || '/assets/img/clover4.gif' | relative_url }}" alt="Chat" border="0" style="vertical-align: middle;"></li>
+    <li class="nav-item">★ <a href="{{ '/chat' | relative_url }}">Tallichat</a> <img src="{{ '/assets/img/small_horse_icon.gif' | relative_url }}" alt="Chat" border="0" style="vertical-align: middle;"></li>
     <li class="nav-item">★ <a href="{{ '/ilmoitustaulu' | relative_url }}">Ilmoitustaulu</a></li>
     <li class="nav-item">★ <a href="{{ '/copyt' | relative_url }}">Copyrights</a></li>
   </ul>
