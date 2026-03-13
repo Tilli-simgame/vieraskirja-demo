@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hevosen Päiväkirja
-theme: horses
+theme: horse-profile
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/guestbook.css' | relative_url }}">

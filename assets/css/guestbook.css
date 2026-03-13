@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
-    color: #2e7d32;
+    color: var(--text-color);
     /* Theme text color */
 }
 
@@ -23,7 +23,7 @@
     max-width: 600px;
     margin: 0 auto 30px auto;
     padding: 15px;
-    border: 1px dashed #999;
+    border: 1px dashed var(--border-color);
     font-size: 0.9em;
     background: #ffffffaa;
 }
@@ -38,10 +38,9 @@
     margin-bottom: 8px;
 }
 
-/* Section dividers */
 .guestbook-divider {
     border: none;
-    border-top: 1px solid #999;
+    border-top: 1px dashed var(--border-color);
     margin: 15px 0;
     width: 100%;
 }
@@ -54,7 +53,7 @@
 .message-item {
     margin-bottom: 40px;
     padding: 0 20px 20px 20px;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px dashed var(--border-color);
     line-height: 1.6;
     text-align: left;
 }
@@ -136,7 +135,7 @@
     flex: 1;
     max-width: 400px;
     /* Prevent fields from being too long */
-    border: 1px solid #999;
+    border: 1px dashed var(--border-color);
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
@@ -150,16 +149,15 @@
 
 .submit-btn {
     background: #fff;
-    border: 1px solid #666;
+    border: 1px dashed var(--border-color);
     padding: 5px 15px;
     cursor: pointer;
     font-weight: bold;
-    color: #2e7d32;
+    color: var(--text-color);
 }
 
 .submit-btn:hover {
-    background: #e8f5e9;
-    /* Subtle tint on hover instead of full purple */
+    background: var(--bg-color);
 }
 
 /* Navigation links (Sivut, Kirjoita jne) */
@@ -174,7 +172,7 @@
 }
 
 .gb-nav a {
-    color: #2e7d32;
+    color: var(--link-color);
     text-decoration: underline;
 }
 
@@ -183,8 +181,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5px;
-    border-top: 1px solid #2e7d32;
-    border-bottom: 1px solid #2e7d32;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     padding: 10px 0;
     margin-bottom: 20px;
     font-size: 0.95em;
@@ -206,7 +204,7 @@
 }
 
 .pagination-cell a {
-    color: #2e7d32;
+    color: var(--link-color);
     text-decoration: underline;
 }
 
