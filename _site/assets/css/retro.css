@@ -255,6 +255,11 @@ body.theme-horse-profile .main-content {
   height: auto;
 }
 
+body.theme-muuta .main-content img:not(.divider-icon) {
+  max-height: 100px;
+  width: auto;
+}
+
 body.theme-yleista .main-content img {
   border: 3px double var(--border-color);
   padding: 4px;
