@@ -181,7 +181,7 @@
 
     async function checkAuth() {
         try {
-            const res = await fetch(`${API_BASE}/me`);
+            const res = await fetch(`${API_BASE}/me`, { credentials: 'include' });
             if (res.ok) {
                 const data = await res.json();
                 document.getElementById('username').textContent = `@${data.user}`;
@@ -198,7 +198,7 @@
     async function loadMessages() {
         const container = document.getElementById('messages-container');
         try {
-            const res = await fetch(`${API_BASE}/messages`);
+            const res = await fetch(`${API_BASE}/messages`, { credentials: 'include' });
             const messages = await res.json();
             currentMessages = messages;
 
@@ -260,7 +260,8 @@
         const res = await fetch(`${API_BASE}/messages/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials: 'include'
         });
 
         if (res.ok) {
@@ -275,7 +276,8 @@
         if (!confirm('Haluatko varmasti poistaa tämän viestin?')) return;
 
         const res = await fetch(`${API_BASE}/messages/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'include'
         });
 
         if (res.ok) {
@@ -286,7 +288,7 @@
     }
 
     async function logout() {
-        await fetch(`${API_BASE}/logout`, { method: 'POST' });
+        await fetch(`${API_BASE}/logout`, { method: 'POST', credentials: 'include' });
         location.reload();
     }
 

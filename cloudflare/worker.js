@@ -1,8 +1,11 @@
         export default {
     async fetch(request, env) {
         const url = new URL(request.url);
+        const frontendUrl = env.FRONTEND_URL || "https://tilli-simgame.github.io/vieraskirja-demo";
+        const origin = new URL(frontendUrl).origin;
+        
         const corsHeaders = {
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": origin,
             "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Credentials": "true"
@@ -79,11 +82,12 @@
                 };
                 const sessionStr = btoa(JSON.stringify(session));
 
+                const frontendUrl = env.FRONTEND_URL || "https://tilli-simgame.github.io/vieraskirja-demo";
                 return new Response(null, {
                     status: 302,
                     headers: {
-                        "Location": "/vieraskirja-demo/admin/",
-                        "Set-Cookie": `session=${sessionStr}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`
+                        "Location": `${frontendUrl}/admin/`,
+                        "Set-Cookie": `session=${sessionStr}; Path=/; HttpOnly; SameSite=None; Max-Age=86400; Secure`
                     }
                 });
             } catch (err) {

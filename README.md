@@ -63,5 +63,6 @@ Jotta voit hallita viestejä ylläpito-osoitteessa `/admin/`, sinun on luotava G
 4. Lisää Workerin ympäristömuuttujat (Settings -> Variables):
    - `GITHUB_CLIENT_ID`: (Client ID)
    - `GITHUB_CLIENT_SECRET`: (Client Secret)
-   - `ALLOWED_GITHUB_USERS`: Oma GitHub-käyttäjänimesi (pilkulla erotettuna, jos useita)
-   - `SESSION_SECRET`: Pitkä satunnainen merkkijono istuntojen salaamiseen.
+   - `ALLOWED_GITHUB_USERS`: `käyttäjänimesi1,käyttäjänimesi2`
+   - `SESSION_SECRET`: Pitkä satunnainen merkkijono (esim. `openssl rand -base64 32`)
+   - `FRONTEND_URL`: `https://tilli-simgame.github.io/vieraskirja-demo`
