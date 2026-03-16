@@ -4,57 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vieraskirja Admin - Hallinta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/retro.css">
     <style>
-        body { padding: 20px; max-width: 1000px; margin: 0 auto; font-family: sans-serif; }
-        .admin-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-        .login-box { text-align: center; padding: 50px; background: #f9f9f9; border: 1px dashed #ccc; margin-top: 100px; }
-        .github-btn { background: #24292e; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .message-card { background: white; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; position: relative; }
-        .message-card:hover { border-color: #999; }
-        .controls { margin-top: 10px; display: flex; gap: 10px; }
-        .btn { padding: 5px 12px; border: none; cursor: pointer; font-size: 0.9em; }
-        .btn-reply { background: #4CAF50; color: white; }
-        .btn-edit { background: #2196F3; color: white; }
-        .btn-delete { background: #f44336; color: white; }
-        .reply-box { margin-top: 10px; padding: 10px; background: #f0f0f0; border-left: 4px solid #4CAF50; font-style: italic; }
+        body { text-align: center; }
+        .admin-main { max-width: 800px; margin: 0 auto; text-align: left; }
         
-        /* Modal styles */
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-content { background: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; }
+        .admin-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px dashed var(--border-color); 
+            padding-bottom: 15px; 
+            margin-bottom: 30px; 
+        }
+        .admin-header h1 { font-size: 2em; margin: 0; }
+
+        .login-box { 
+            padding: 40px; 
+            border: 3px double var(--border-color); 
+            background: rgba(255,255,255,0.5);
+            border-radius: 15px;
+        }
+
+        .github-btn { 
+            display: inline-block;
+            background: #24292e; 
+            color: white !important; 
+            padding: 12px 24px; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .github-btn:hover { background: #000; transform: scale(1.05); }
+
+        .message-card { 
+            background: white; 
+            border: 1px dashed var(--border-color); 
+            padding: 20px; 
+            margin-bottom: 25px; 
+            border-radius: 10px;
+            box-shadow: 3px 3px 0px var(--shadow-color);
+        }
+        .message-meta { 
+            font-size: 0.9em; 
+            color: var(--text-color); 
+            margin-bottom: 10px; 
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+        }
+        .message-body { margin-bottom: 15px; line-height: 1.5; }
+
+        .reply-box { 
+            margin-top: 15px; 
+            padding: 10px 15px; 
+            background: #fffafa; 
+            border-left: 5px solid #ff69b4; 
+            font-style: italic;
+            color: #d10074;
+        }
+
+        .controls { display: flex; gap: 10px; margin-top: 15px; }
+        .btn { 
+            padding: 8px 15px; 
+            border: 1px solid var(--border-color); 
+            background: #fff; 
+            cursor: pointer; 
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        .btn:hover { background: var(--link-hover-bg); color: var(--link-hover-text); }
+        .btn-primary { background: var(--border-color); color: white; border: none; }
+        .btn-danger { color: #c62828; border-color: #c62828; }
+        .btn-danger:hover { background: #c62828; color: white; }
+
+        /* Modal */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.6); 
+            align-items: center; 
+            justify-content: center;
+        }
+        .modal-content { 
+            background: white; 
+            padding: 30px; 
+            width: 90%; 
+            max-width: 500px; 
+            border-radius: 20px;
+            border: 5px double var(--border-color);
+            text-align: left;
+        }
         .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading-color); }
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px dashed var(--border-color); 
+            font-family: inherit;
+            font-size: 1em;
+        }
     </style>
 </head>
-<body>
+<body class="theme-muuta">
 
-<div id="auth-check" style="display: none;">
-    <div class="login-box">
-        <h1>Vieraskirjan ylläpito</h1>
-        <p>Ole hyvä ja kirjaudu sisään hallitaksesi viestejä.</p>
-        <a href="https://gb-demo.anniina-sipria.workers.dev/api/admin/auth/github" class="github-btn">Kirjaudu GitHubilla</a>
-    </div>
-</div>
+<center>
+    <div style="max-width: 800px; padding: 20px;">
+        <div class="main-content">
+            
+            <!-- Auth Screen -->
+            <div id="auth-check" style="display: none;">
+                <div class="login-box">
+                    <h1>Ylläpito</h1>
+                    <p>Ole hyvä ja kirjaudu sisään hallitaksesi viestejä.</p>
+                    <a href="https://gb-demo.anniina-sipria.workers.dev/api/admin/auth/github" class="github-btn">Kirjaudu GitHubilla</a>
+                </div>
+            </div>
 
-<div id="admin-panel" style="display: none;">
-    <div class="admin-header">
-        <h1>Vieraskirja Hallinta</h1>
-        <div>
-            Kirjautuneena: <strong id="username">...</strong>
-            <button onclick="logout()" class="btn" style="margin-left: 10px;">Kirjaudu ulos</button>
+            <!-- Admin Panel -->
+            <div id="admin-panel" style="display: none;">
+                <div class="admin-main">
+                    <header class="admin-header">
+                        <h1>Hallinta</h1>
+                        <div style="font-size: 0.9em;">
+                            Käyttäjä: <strong id="username">...</strong> | 
+                            <a href="#" onclick="logout(); return false;">Kirjaudu ulos</a>
+                        </div>
+                    </header>
+
+                    <div id="messages-container">
+                        <p>Ladataan viestejä...</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+</center>
 
-    <div id="messages-container">
-        <p>Ladataan viestejä...</p>
-    </div>
-</div>
-
-<!-- Modal for Edit/Reply -->
+<!-- Modal -->
 <div id="editModal" class="modal">
     <div class="modal-content">
-        <h2 id="modalTitle">Muokkaa viestiä</h2>
+        <h2 id="modalTitle">Vastaa viestiin</h2>
         <form id="editForm">
             <input type="hidden" id="edit-id">
             <div class="form-group">
@@ -63,15 +161,15 @@
             </div>
             <div class="form-group">
                 <label>Viesti:</label>
-                <textarea id="edit-message" rows="5" required></textarea>
+                <textarea id="edit-message" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <label>Vastaus (Admin):</label>
-                <textarea id="edit-reply" rows="3" placeholder="Kirjoita vastaus tähän..."></textarea>
+                <label>Sinun vastauksesi:</label>
+                <textarea id="edit-reply" rows="3" placeholder="Kirjoita vastaus..."></textarea>
             </div>
-            <div style="text-align: right;">
+            <div style="text-align: right; margin-top: 20px;">
                 <button type="button" onclick="closeModal()" class="btn">Peruuta</button>
-                <button type="submit" class="btn btn-reply">Tallenna</button>
+                <button type="submit" class="btn btn-primary">Tallenna</button>
             </div>
         </form>
     </div>
@@ -86,7 +184,7 @@
             const res = await fetch(`${API_BASE}/me`);
             if (res.ok) {
                 const data = await res.json();
-                document.getElementById('username').textContent = data.user;
+                document.getElementById('username').textContent = `@${data.user}`;
                 document.getElementById('admin-panel').style.display = 'block';
                 loadMessages();
             } else {
@@ -105,18 +203,26 @@
             currentMessages = messages;
 
             if (messages.length === 0) {
-                container.innerHTML = '<p>Ei viestejä.</p>';
+                container.innerHTML = '<p>Ei viestejä hallittavaksi.</p>';
                 return;
             }
 
             container.innerHTML = messages.map(m => `
                 <div class="message-card">
-                    <div><strong>${escapeHtml(m.name)}</strong> <small>(${new Date(m.created_at).toLocaleString('fi-FI')})</small></div>
-                    <div style="margin-top: 10px;">${escapeHtml(m.message)}</div>
-                    ${m.admin_reply ? `<div class="reply-box"><strong>Vastaus:</strong> ${escapeHtml(m.admin_reply)}</div>` : ''}
+                    <div class="message-meta">
+                        <strong>${escapeHtml(m.name)}</strong> - 
+                        <span>${new Date(m.created_at).toLocaleString('fi-FI')}</span>
+                    </div>
+                    <div class="message-body">${escapeHtml(m.message)}</div>
+                    ${m.admin_reply ? `
+                        <div class="reply-box">
+                            <strong>Sinun vastauksesi:</strong><br>
+                            ${escapeHtml(m.admin_reply)}
+                        </div>
+                    ` : ''}
                     <div class="controls">
-                        <button onclick="openEdit(${m.id})" class="btn btn-edit">Muokkaa / Vastaa</button>
-                        <button onclick="deleteMessage(${m.id})" class="btn btn-delete">Poista</button>
+                        <button onclick="openEdit(${m.id})" class="btn">Muokkaa / Vastaa</button>
+                        <button onclick="deleteMessage(${m.id})" class="btn btn-danger">Poista</button>
                     </div>
                 </div>
             `).join('');
@@ -134,7 +240,8 @@
         document.getElementById('edit-message').value = msg.message;
         document.getElementById('edit-reply').value = msg.admin_reply || '';
         
-        document.getElementById('editModal').style.display = 'block';
+        const modal = document.getElementById('editModal');
+        modal.style.display = 'flex';
     }
 
     function closeModal() {
@@ -165,7 +272,7 @@
     };
 
     async function deleteMessage(id) {
-        if (!confirm('Haluatko varmasti poistaa viestin?')) return;
+        if (!confirm('Haluatko varmasti poistaa tämän viestin?')) return;
 
         const res = await fetch(`${API_BASE}/messages/${id}`, {
             method: 'DELETE'
@@ -187,6 +294,11 @@
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('editModal');
+        if (event.target == modal) closeModal();
     }
 
     checkAuth();
