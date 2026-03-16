@@ -6,5 +6,7 @@ CREATE TABLE IF NOT EXISTS messages (
     url TEXT,
     rating TEXT,
     message TEXT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    admin_reply TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

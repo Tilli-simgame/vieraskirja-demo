@@ -167,6 +167,7 @@
                         ${m.website ? `<div class="meta-row"><span class="meta-label">Tallin nimi:</span> <span class="meta-value">${m.url ? `<a href="${escapeHtml(m.url)}" target="_blank">${escapeHtml(m.website)}</a>` : escapeHtml(m.website)}</span></div>` : (m.url ? `<div class="meta-row"><span class="meta-label">www-osoite:</span> <span class="meta-value"><a href="${escapeHtml(m.url)}" target="_blank">${escapeHtml(m.url)}</a></span></div>` : '')}
                         ${m.rating ? `<div class="meta-row"><span class="meta-label">Arvosana tallille :</span> <span class="meta-value">${escapeHtml(m.rating)}</span></div>` : ''}
                         <div class="meta-row" style="margin-top: 15px;"><span class="meta-label">Viesti :</span> <span class="meta-value">${escapeHtml(m.message)}</span></div>
+                        ${m.admin_reply ? `<div class="admin-reply"><div class="reply-label">Vastaus:</div> <div class="reply-content">${escapeHtml(m.admin_reply)}</div></div>` : ''}
                     </div>
                     <div class="message-date">${formatDate(m.created_at)}</div>
                 </div>

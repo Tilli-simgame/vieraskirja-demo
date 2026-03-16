@@ -100,13 +100,28 @@
     /* Alihan kanssa samaan linjaan (140px label + 10px padding) */
 }
 
-/* Reply/Staff comment block */
-.staff-reply {
-    margin-top: 10px;
+/* Admin reply block */
+.admin-reply {
+    margin-top: 15px;
+    margin-left: 150px; /* Align with message date */
+    padding: 10px 15px;
+    background: rgba(255, 105, 180, 0.1); /* Subtle pink background */
+    border-left: 4px solid #ff69b4;
     font-size: 0.9em;
+}
+
+.reply-label {
+    font-weight: bold;
     color: #ff69b4;
-    /* Pinkish-red for replies in image */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+
+.reply-content {
     font-style: italic;
+    color: #333;
 }
 
 /* Form styling */

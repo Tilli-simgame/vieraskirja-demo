@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vieraskirja Admin - Hallinta</title>
+    <link rel="stylesheet" href="../assets/css/retro.css">
+    <style>
+        body { padding: 20px; max-width: 1000px; margin: 0 auto; font-family: sans-serif; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        .login-box { text-align: center; padding: 50px; background: #f9f9f9; border: 1px dashed #ccc; margin-top: 100px; }
+        .github-btn { background: #24292e; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .message-card { background: white; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; position: relative; }
+        .message-card:hover { border-color: #999; }
+        .controls { margin-top: 10px; display: flex; gap: 10px; }
+        .btn { padding: 5px 12px; border: none; cursor: pointer; font-size: 0.9em; }
+        .btn-reply { background: #4CAF50; color: white; }
+        .btn-edit { background: #2196F3; color: white; }
+        .btn-delete { background: #f44336; color: white; }
+        .reply-box { margin-top: 10px; padding: 10px; background: #f0f0f0; border-left: 4px solid #4CAF50; font-style: italic; }
+        
+        /* Modal styles */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .modal-content { background: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<div id="auth-check" style="display: none;">
+    <div class="login-box">
+        <h1>Vieraskirjan ylläpito</h1>
+        <p>Ole hyvä ja kirjaudu sisään hallitaksesi viestejä.</p>
+        <a href="https://gb-demo.anniina-sipria.workers.dev/api/admin/auth/github" class="github-btn">Kirjaudu GitHubilla</a>
+    </div>
+</div>
+
+<div id="admin-panel" style="display: none;">
+    <div class="admin-header">
+        <h1>Vieraskirja Hallinta</h1>
+        <div>
+            Kirjautuneena: <strong id="username">...</strong>
+            <button onclick="logout()" class="btn" style="margin-left: 10px;">Kirjaudu ulos</button>
+        </div>
+    </div>
+
+    <div id="messages-container">
+        <p>Ladataan viestejä...</p>
+    </div>
+</div>
+
+<!-- Modal for Edit/Reply -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle">Muokkaa viestiä</h2>
+        <form id="editForm">
+            <input type="hidden" id="edit-id">
+            <div class="form-group">
+                <label>Nimi:</label>
+                <input type="text" id="edit-name" required>
+            </div>
+            <div class="form-group">
+                <label>Viesti:</label>
+                <textarea id="edit-message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Vastaus (Admin):</label>
+                <textarea id="edit-reply" rows="3" placeholder="Kirjoita vastaus tähän..."></textarea>
+            </div>
+            <div style="text-align: right;">
+                <button type="button" onclick="closeModal()" class="btn">Peruuta</button>
+                <button type="submit" class="btn btn-reply">Tallenna</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const API_BASE = 'https://gb-demo.anniina-sipria.workers.dev/api/admin';
+    let currentMessages = [];
+
+    async function checkAuth() {
+        try {
+            const res = await fetch(`${API_BASE}/me`);
+            if (res.ok) {
+                const data = await res.json();
+                document.getElementById('username').textContent = data.user;
+                document.getElementById('admin-panel').style.display = 'block';
+                loadMessages();
+            } else {
+                document.getElementById('auth-check').style.display = 'block';
+            }
+        } catch (e) {
+            document.getElementById('auth-check').style.display = 'block';
+        }
+    }
+
+    async function loadMessages() {
+        const container = document.getElementById('messages-container');
+        try {
+            const res = await fetch(`${API_BASE}/messages`);
+            const messages = await res.json();
+            currentMessages = messages;
+
+            if (messages.length === 0) {
+                container.innerHTML = '<p>Ei viestejä.</p>';
+                return;
+            }
+
+            container.innerHTML = messages.map(m => `
+                <div class="message-card">
+                    <div><strong>${escapeHtml(m.name)}</strong> <small>(${new Date(m.created_at).toLocaleString('fi-FI')})</small></div>
+                    <div style="margin-top: 10px;">${escapeHtml(m.message)}</div>
+                    ${m.admin_reply ? `<div class="reply-box"><strong>Vastaus:</strong> ${escapeHtml(m.admin_reply)}</div>` : ''}
+                    <div class="controls">
+                        <button onclick="openEdit(${m.id})" class="btn btn-edit">Muokkaa / Vastaa</button>
+                        <button onclick="deleteMessage(${m.id})" class="btn btn-delete">Poista</button>
+                    </div>
+                </div>
+            `).join('');
+        } catch (e) {
+            container.innerHTML = '<p style="color: red;">Virhe ladattaessa viestejä.</p>';
+        }
+    }
+
+    function openEdit(id) {
+        const msg = currentMessages.find(m => m.id === id);
+        if (!msg) return;
+
+        document.getElementById('edit-id').value = msg.id;
+        document.getElementById('edit-name').value = msg.name;
+        document.getElementById('edit-message').value = msg.message;
+        document.getElementById('edit-reply').value = msg.admin_reply || '';
+        
+        document.getElementById('editModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    document.getElementById('editForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('edit-id').value;
+        const data = {
+            name: document.getElementById('edit-name').value,
+            message: document.getElementById('edit-message').value,
+            admin_reply: document.getElementById('edit-reply').value
+        };
+
+        const res = await fetch(`${API_BASE}/messages/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (res.ok) {
+            closeModal();
+            loadMessages();
+        } else {
+            alert('Tallennus epäonnistui.');
+        }
+    };
+
+    async function deleteMessage(id) {
+        if (!confirm('Haluatko varmasti poistaa viestin?')) return;
+
+        const res = await fetch(`${API_BASE}/messages/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (res.ok) {
+            loadMessages();
+        } else {
+            alert('Poisto epäonnistui.');
+        }
+    }
+
+    async function logout() {
+        await fetch(`${API_BASE}/logout`, { method: 'POST' });
+        location.reload();
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    checkAuth();
+</script>
+
+</body>
+</html>
