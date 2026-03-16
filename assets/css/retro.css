@@ -3,8 +3,8 @@
 }
 
 :root {
-  --bg-image: url('../img/bluey.jpg');
-  --bg-color: #add8e6;
+  --bg-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+  --bg-color: #bd8700;
   --text-color: #ff00ff;
   --heading-color: #0000ff;
   --link-color: #0000ff;
@@ -76,8 +76,8 @@ body.theme-hoitajat {
 }
 
 body.theme-muuta {
-  --bg-image: url('../img/apple.gif');
-  --bg-color: #e8f5e9;
+  --bg-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+  --bg-color: #bd8700;
   --text-color: #2e7d32;
   --heading-color: #c62828;
   --border-color: #43a047;
@@ -90,7 +90,7 @@ body {
   background-image: var(--bg-image);
   background-repeat: repeat;
   color: var(--text-color);
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Outfit", sans-serif;
   margin: 0;
   padding: 20px;
   text-align: center;
@@ -98,11 +98,11 @@ body {
 
 h1 {
   color: var(--heading-color);
-  font-weight: bold;
-  font-size: 2.5em;
+  font-weight: 800;
+  font-size: 3em;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
 h2,
@@ -113,17 +113,36 @@ h3 {
 
 a {
   color: var(--link-color);
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--link-visited-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  position: relative;
 }
 
 a:hover {
-  background-color: var(--link-hover-bg);
-  color: var(--link-hover-text);
+  color: var(--link-visited-color);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--link-visited-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a:visited {
+  color: var(--link-color);
 }
 
 p {
@@ -213,13 +232,15 @@ body.theme-muuta hr {
 }
 
 .main-content {
-  background-color: var(--main-content-bg);
-  padding: 30px;
-  border-radius: 10px;
-  border: 2px solid var(--border-color);
-  box-shadow: 5px 5px 0px var(--shadow-color);
-  margin-top: 20px;
-  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 body.theme-hoitajat .main-content {

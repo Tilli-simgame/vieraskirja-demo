@@ -1,8 +1,8 @@
-title: Lehmuskartanon Ratsastuskoulu
+title: Demo vieraskirja
 email: virtuaali@proton.me
 description: >-
-  Tervetuloa virtuaalitallillemme!
-baseurl: "/lehmuskartanon-ratastuskoulu"
+  Tämä on demo vieraskirja.
+baseurl: "/vieraskirja-demo"
 url: "https://tilli-simgame.github.io"
 
 # Build settings
@@ -10,8 +10,3 @@ theme: minima # We will override this with our own layouts
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-collections:
-  hevoset:
-    output: true
-    permalink: /hevoset/:path/

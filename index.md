@@ -1,104 +1,178 @@
 ---
 layout: default
-title: Lehmuskartanon Ratsastuskoulu
+title: Demo vieraskirja
+theme: muuta
 ---
 
-<h1>Lehmuskartanon Ratsastuskoulu</h1>
+<link rel="stylesheet" href="{{ '/assets/css/guestbook.css' | relative_url }}">
 
-<center>
-  <img src="{{ '/assets/img/etusivu.gif' | relative_url }}" alt="Pegasos tamma varsojen kanssa" style="margin: 20px 0;">
-  <br>
-  <font color="#ff0000"><b>Welcome!! HAE HOITOHEPPA ITSELLESI!!</b></font>
-</center>
+<div class="guestbook-container">
+    <h1>Demo vieraskirja</h1>
 
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
+    <div class="guestbook-rules">
+        <ul>
+            <li><strong>Ole kohtelias:</strong> Kirjoita asiallisesti ja ystävällisesti. Muista, että ruudun takana on toinen ihminen.</li>
+            <li><strong>Pysy aiheessa:</strong> Vieraskirja on tarkoitettu virtuaalihevosaiheiseen keskusteluun. Pidä kommentit aiheessa.</li>
+            <li><strong>Ei mainostamista:</strong> Tämä ei ole mainospalsta!</li>
+            <li><strong>Ei vihapuhetta tai spämmäystä:</strong> Asiaton kielenkäyttö, kiroilu ja saman viestin toistaminen (spämmi) johtaa viestin poistoon.</li>
+            <li><strong>Omalla nimimerkillä:</strong> Käytä mielellään virtuaali nikkiäsi.</li>
+        </ul>
+    </div>
 
-<p>
-  Mailaa mulle: 
-  <a href="mailto:{{ site.email }}">
-    <img src="{{ '/assets/img/email.gif' | relative_url }}" alt="Mail me" border="0" style="vertical-align: middle; margin-left: 5px;">
-  </a>
-</p>
+    <div class="gb-pagination">
+        <div class="pagination-cell">
+            Viestit <span id="current-range">...</span>
+        </div>
+        <div class="pagination-cell">
+            Yhteensä <span id="total-count">...</span> viestiä
+        </div>
+        <div class="pagination-cell">
+            <a href="#" id="next-page" class="nav-disabled">Seuraavat 10 viestiä</a>
+        </div>
+        <div class="pagination-cell">
+            <a href="{{ '/vieraskirja/kirjoita.html' | relative_url }}">Kirjoita vieraskirjaan</a>
+        </div>
+        <div class="pagination-cell">
+            <a href="#" id="prev-page" class="nav-disabled">Edelliset 10 viestiä</a>
+        </div>
+    </div>
 
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
+    <div class="messages-list" id="messages-list">
+        <div class="loading">Sivua ladataan...</div>
+    </div>
 
-<p>
-  Tervetuloa Lehmuskartanon Ratsastuskoululle! Ratastuskoulu on perustettu vuonna 2024 ja on toiminut siitä lähtien virtuaalitallina. Talli on tarkoitettu kaikille hevosista kiinnostuneille ja tarjoaa monipuolista toimintaa niin aloittelijoille kuin kokeneemmillekin ratsastajille. Muistathan kirjoittaa vieraskirjaan?<br />
-  <br />
-  xoxo Tilli
-</p>
-
-<hr>
-
-<div class="nav-section">
-  <span class="nav-title">Yleistä tallista</span>
-  <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/henkilokunta' | relative_url }}">Henkilökunta</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/tarhaus' | relative_url }}">Tarhaus</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/pohjapiirrokset' | relative_url }}">Pohjapiirrokset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/paivaohjelma' | relative_url }}">Päiväohjelma</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/muut-elaimet' | relative_url }}">Muut eläimet</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/laidunjarjestykset' | relative_url }}">Laidunjärjestykset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/karsinajarjestykset' | relative_url }}">Karsinajärjestykset</a></li>
-  </ul>
+    <div class="gb-pagination">
+        <div class="pagination-cell">
+            <a href="#" id="next-page-bottom" class="nav-disabled">Seuraavat 10 viestiä</a>
+        </div>
+        <div class="pagination-cell">
+            <a href="{{ '/vieraskirja/kirjoita.html' | relative_url }}">Kirjoita vieraskirjaan</a>
+        </div>
+        <div class="pagination-cell">
+            <a href="#" id="prev-page-bottom" class="nav-disabled">Edelliset 10 viestiä</a>
+        </div>
+    </div>
 </div>
 
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
-<br>
+<script>
+    const API_URL = 'https://gb-demo.anniina-sipria.workers.dev/api/guestbook';
+    const LIMIT = 10;
+    let currentOffset = 0;
 
-<div class="nav-section">
-  <span class="nav-title">Hevoset</span>
-  <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/tallin-hevoset' | relative_url }}">Tallin hevoset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/yksityiset' | relative_url }}">Yksityiset hevoset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/kasvatit' | relative_url }}">Tallin kasvatit</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hevoset/myytavat' | relative_url }}">Myytävät hevoset</a></li>
-  </ul>
+    const messagesList = document.getElementById('messages-list');
+    const totalCountSpan = document.getElementById('total-count');
+    const currentRangeSpan = document.getElementById('current-range');
+    
+    const nextBtn = document.getElementById('next-page');
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtnBottom = document.getElementById('next-page-bottom');
+    const prevBtnBottom = document.getElementById('prev-page-bottom');
+
+    async function fetchMessages(offset = 0) {
+        try {
+            messagesList.innerHTML = '<div class="loading">Ladataan viestejä...</div>';
+            const response = await fetch(`${API_URL}?limit=${LIMIT}&offset=${offset}`);
+            if (!response.ok) throw new Error('Haku epäonnistui');
+            
+            const messages = await response.json();
+            const totalCount = parseInt(response.headers.get('X-Total-Count')) || messages.length;
+            
+            totalCountSpan.textContent = totalCount;
+            
+            if (messages.length === 0 && offset > 0) {
+                // Should not happen with valid buttons, but safe guard
+                fetchMessages(0);
+                return;
+            }
+
+            const rangeStart = totalCount > 0 ? offset + 1 : 0;
+            const rangeEnd = offset + messages.length;
+            currentRangeSpan.textContent = `${rangeStart} - ${rangeEnd}`;
+
+            // Seuraavat (Next) -> Older messages (higher offset)
+            if (offset + LIMIT < totalCount) {
+                nextBtn.classList.remove('nav-disabled');
+                nextBtnBottom.classList.remove('nav-disabled');
+                const nextAction = (e) => {
+                    e.preventDefault();
+                    currentOffset += LIMIT;
+                    fetchMessages(currentOffset);
+                };
+                nextBtn.onclick = nextAction;
+                nextBtnBottom.onclick = nextAction;
+            } else {
+                nextBtn.classList.add('nav-disabled');
+                nextBtnBottom.classList.add('nav-disabled');
+                nextBtn.onclick = null;
+                nextBtnBottom.onclick = null;
+            }
+
+            // Edelliset (Previous) -> Newer messages (lower offset)
+            if (offset > 0) {
+                prevBtn.classList.remove('nav-disabled');
+                prevBtnBottom.classList.remove('nav-disabled');
+                const prevAction = (e) => {
+                    e.preventDefault();
+                    currentOffset = Math.max(0, currentOffset - LIMIT);
+                    fetchMessages(currentOffset);
+                };
+                prevBtn.onclick = prevAction;
+                prevBtnBottom.onclick = prevAction;
+            } else {
+                prevBtn.classList.add('nav-disabled');
+                prevBtnBottom.classList.add('nav-disabled');
+                prevBtn.onclick = null;
+                prevBtnBottom.onclick = null;
+            }
+
+            if (messages.length === 0) {
+                messagesList.innerHTML = '<div class="loading">Ei vielä viestejä. Ole ensimmäinen!</div>';
+                return;
+            }
+
+            messagesList.innerHTML = messages.map(m => `
+                <div class="message-item">
+                    <div class="message-meta">
+                        <div class="meta-row"><span class="meta-label">Nimi :</span> <span class="meta-value">${escapeHtml(m.name)}</span></div>
+                        ${m.email ? `<div class="meta-row"><span class="meta-label">@ :</span> <span class="meta-value">${escapeHtml(m.email)}</span></div>` : ''}
+                        ${m.website ? `<div class="meta-row"><span class="meta-label">Tallin nimi:</span> <span class="meta-value">${m.url ? `<a href="${escapeHtml(m.url)}" target="_blank">${escapeHtml(m.website)}</a>` : escapeHtml(m.website)}</span></div>` : (m.url ? `<div class="meta-row"><span class="meta-label">www-osoite:</span> <span class="meta-value"><a href="${escapeHtml(m.url)}" target="_blank">${escapeHtml(m.url)}</a></span></div>` : '')}
+                        ${m.rating ? `<div class="meta-row"><span class="meta-label">Arvosana tallille :</span> <span class="meta-value">${escapeHtml(m.rating)}</span></div>` : ''}
+                        <div class="meta-row" style="margin-top: 15px;"><span class="meta-label">Viesti :</span> <span class="meta-value">${escapeHtml(m.message)}</span></div>
+                    </div>
+                    <div class="message-date">${formatDate(m.created_at)}</div>
+                </div>
+            `).join('');
+            
+            // Scroll to top of list after navigation
+            if (offset > 0 || currentOffset > 0) {
+                document.getElementById('messages-list').scrollIntoView({ behavior: 'smooth' });
+            }
+
+        } catch (err) {
+            messagesList.innerHTML = '<div class="error-message">Virhe viestien latauksessa.</div>';
+            console.error(err);
+        }
+    }
+
+    function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        const months = ["tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta"];
+        const day = d.getDate();
+        const month = months[d.getMonth()];
+        const year = d.getFullYear();
+        const time = d.toLocaleTimeString('fi-FI', {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+        return `${day}. ${month} ${year} ${time}`;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    fetchMessages();
+</script>
+
+<div style="margin-top: 30px; text-align: center; font-size: 0.8em; color: #999;">
+    inspired by freebok.net
 </div>
-
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
-<br>
-
-<div class="nav-section">
-  <span class="nav-title">Tallin toimintaa</span>
-  <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/ratsastustunnit' | relative_url }}">Ratsastustunnit</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/leirit' | relative_url }}">Leirit ja vaellukset</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/toiminta/kilpailut' | relative_url }}">Kilpailut</a></li>
-  </ul>
-</div>
-
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
-<br>
-
-<div class="nav-section">
-  <span class="nav-title">Hoitajat ja työntekijät</span>
-  <ul class="nav-list">
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hoitajat/tehtavat' | relative_url }}">Hoitajien olohuone</a></li>
-    <li class="nav-item"><img src="{{ '/assets/img/clover4.gif' | relative_url }}" alt="*"> <a href="{{ '/hoitajat/paivakirjat' | relative_url }}">Hoitajalistaus</a></li>
-  </ul>
-</div>
-
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
-<br>
-
-<div class="nav-section">
-  <span class="nav-title">Muuta tärkeää</span>
-  <ul class="nav-list">
-    <li class="nav-item">★ <a href="{{ '/muuta/tallikauppa' | relative_url }}">Tallikauppa</a></li>
-    <li class="nav-item">★ <a href="{{ '/muuta/ystavyystallit' | relative_url }}">Ystävyystallit</a></li>
-    <li class="nav-item">★ <a href="{{ '/vieraskirja' | relative_url }}">Vieraskirja</a> <a href="{{ '/vieraskirja' | relative_url }}"><img src="{{ '/assets/img/guest-s.gif' | relative_url }}" alt="Vieraskirja" border="0" style="vertical-align: middle; margin-left: 5px;"></a></li>
-    <li class="nav-item">★ <a href="{{ '/chat' | relative_url }}">Tallichat</a> <img src="{{ '/assets/img/small_horse_icon.gif' | relative_url }}" alt="Chat" border="0" style="vertical-align: middle;"></li>
-    <li class="nav-item">★ <a href="{{ '/ilmoitustaulu' | relative_url }}">Ilmoitustaulu</a></li>
-    <li class="nav-item">★ <a href="{{ '/copyt' | relative_url }}">Copyrights</a></li>
-  </ul>
-</div>
-
-<br>
-<img class="divider-icon" src="{{ '/assets/img/vine12.gif' | relative_url }}" alt="Divider">
-<br>

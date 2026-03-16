@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lehmuskartanon Ratsastuskoulun vieraskirja
+title: Demo vieraskirja
 theme: muuta
 ---
 
@@ -8,10 +8,7 @@ theme: muuta
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <div class="guestbook-container">
-    <h1>Lehmuskartanon Ratsastuskoulu</h1>
-    <h2>VIERASKIRJA</h2>
-    <hr>
-    <img src="{{ '/assets/img/uni1.gif' | relative_url }}" alt="" class="guestbook-header-img">
+    <h1>Demo vieraskirja</h1>
 
     <div class="guestbook-rules">
         <ul>
@@ -55,7 +52,7 @@ theme: muuta
                 <textarea id="message" name="message" required placeholder="Terveisesi..."></textarea>
             </div>
             <!-- Turnstile Widget -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAACn-0CzwlsyjJaLi" style="margin-bottom: 10px;"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACrwJssqYp7vTZpx" style="margin-bottom: 10px;"></div>
             
             <button type="submit" class="submit-btn" id="submit-btn" style="width: 100%;">Lähetä terveisesi!</button>
         </form>

@@ -2,15 +2,13 @@
 
 .guestbook-container,
 .horse-diary-container {
-    margin-top: 20px;
+    margin-top: 40px;
     text-align: center;
-    /* Centered content like in the image */
-    max-width: 700px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
     color: var(--text-color);
-    /* Theme text color */
 }
 
 /* Header image handling */
@@ -21,11 +19,13 @@
 .guestbook-rules {
     text-align: left;
     max-width: 600px;
-    margin: 0 auto 30px auto;
-    padding: 15px;
-    border: 1px dashed var(--border-color);
-    font-size: 0.9em;
-    background: #ffffffaa;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95em;
+    background: rgba(255, 255, 255, 0.4);
+    line-height: 1.5;
 }
 
 .guestbook-rules ul {
@@ -148,16 +148,22 @@
 }
 
 .submit-btn {
-    background: #fff;
-    border: 1px dashed var(--border-color);
-    padding: 5px 15px;
+    background: var(--text-color);
+    border: none;
+    padding: 12px 24px;
     cursor: pointer;
-    font-weight: bold;
-    color: var(--text-color);
+    font-weight: 700;
+    color: #fff;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .submit-btn:hover {
-    background: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0.9;
 }
 
 /* Navigation links (Sivut, Kirjoita jne) */
@@ -173,7 +179,6 @@
 
 .gb-nav a {
     color: var(--link-color);
-    text-decoration: underline;
 }
 
 /* Navigation Grid (Pagination) */
@@ -205,7 +210,6 @@
 
 .pagination-cell a {
     color: var(--link-color);
-    text-decoration: underline;
 }
 
 .pagination-cell a.nav-disabled {

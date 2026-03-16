@@ -1,46 +1,45 @@
-# Lehmuskartanon Ratsastuskoulu
+# Lehmuskartanon Ratsastuskoulun vieraskirja
 
-Tämä on Lehmuskartanon Ratsastuskoulun Jekyll-pohjainen verkkosivusto.
+Tämä projekti on minimalistinen, Jekyll-pohjainen vieraskirjasivusto, joka käyttää Cloudflare Workersia ja D1-tietokantaa viestien tallentamiseen.
 
-## Paikallinen kehitys
+## Projektin rakenne
+
+- `index.md`: Sivuston etusivu ja vieraskirjan käyttöliittymä.
+- `vieraskirja/kirjoita.md`: Sivu, jolla käyttäjät voivat kirjoittaa uusia viestejä.
+- `cloudflare/`: Sisältää API-toteutuksen (Worker) ja tietokantakaavion (SQL).
+- `assets/css/guestbook.css`: Vieraskirjan tyylitiedosto.
+
+## Paikallinen kehitys (Jekyll)
 
 ### Ohjelmistovaatimukset
-- **Ruby**: Versio 3.0 tai uudempi suositeltu.
-- **Bundler**: Rubyn riippuvuuksien hallintaan (`gem install bundler`).
-- **Git**: Versiohallintaan.
+- **Ruby** (v3.0+)
+- **Bundler** (`gem install bundler`)
 
-### Asennus
-1. Avaa komentorivi projektin kansiossa.
-2. Aja komento:
-   ```bash
-   bundle install
-   ```
-   Tämä asentaa kaikki tarvittavat gemit (Jekyll, teemat ja lisäosat).
+### Asennus ja ajo
+1. Asenna riippuvuudet: `bundle install`
+2. Käynnistä palvelin: `bundle exec jekyll serve`
+3. Sivusto löytyy osoitteesta: `http://localhost:4000/vieraskirja-demo/`
 
-### Jekyllin ajaminen lokaalisti
-Käynnistä kehityspalvelin komennolla:
-```bash
-bundle exec jekyll serve
-```
-Sivusto on tämän jälkeen saatavilla osoitteessa: `http://localhost:4000/lehmuskartanon-ratastuskoulu/`
+## Cloudflare-taustajärjestelmän pystytys
 
----
+Voit pystyttää vieraskirja-API:n joko komentoriviltä tai käsin.
 
-## Hevosten päivittäminen (Contentful Sync)
+### 1. Tietokanta (D1)
+- Luo D1-tietokanta nimellä `db-demo`.
+- Alusta tietokanta käyttäen tiedostoa `cloudflare/schema.sql`.
 
-Sivuston hevosprofiilit haetaan Contentful-sisällönhallintajärjestelmästä `sync_horses.rb`-skriptillä.
+### 2. API (Worker)
+- Luo uusi Cloudflare Worker nimeltä `gb-demo`.
+- Liitä koodi tiedostosta `cloudflare/worker.js` Workerin editoriin.
+- Lisää Workerille **D1 Database Binding**:
+    - Variable name: `DB`
+    - Database: `db-demo`
 
-### Määritykset (.env)
-Varmista, että projektin juuressa on `.env`-tiedosto, joka sisältää seuraavat tiedot:
-```env
-CONTENTFUL_SPACE_ID=your_space_id
-CONTENTFUL_ACCESS_TOKEN=your_access_token
-STABLE_NAME=Lehmuskartanon Ratsastuskoulu
-```
+### 3. Yhdistäminen
+- Kun Worker on julkaistu, kopioi sen URL (esim. `https://xxx.workers.dev`).
+- Päivitä `index.md`-tiedostoon muuttuja `API_URL` vastaamaan uutta osoitettasi.
 
-### Hevosten synkronointi
-Kun haluat päivittää hevoset Contentfulista, aja komento:
-```bash
-ruby sync_horses.rb
-```
-Skripti luo hevosprofiilit markdown-tiedostoina `_hevoset/`-kansioon. Päivityksen jälkeen Jekyll-palvelin huomaa muutokset automaattisesti, jos se on käynnissä.
+### 4. Spämmitarkistus (Turnstile)
+- Luo Turnstile-widget Cloudflaressa.
+- Lisää **Site Key** tiedostoon `vieraskirja/kirjoita.md`.
+- Lisää **Secret Key** Workerin ympäristömuuttujaksi nimellä `TURNSTILE_SECRET_KEY`.
