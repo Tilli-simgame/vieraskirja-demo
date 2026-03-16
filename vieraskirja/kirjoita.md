@@ -61,7 +61,7 @@ theme: muuta
 </div>
 
 <script>
-    const API_URL = 'https://guestbook.anniina-sipria.workers.dev/api/guestbook';
+    const API_URL = 'https://gb-demo.anniina-sipria.workers.dev/api/guestbook';
     const gbForm = document.getElementById('gb-form-el');
     const formStatus = document.getElementById('form-status');
 

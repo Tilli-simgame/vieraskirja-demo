@@ -39,6 +39,17 @@ Voit pystyttää vieraskirja-API:n joko komentoriviltä tai käsin.
 - Kun Worker on julkaistu, kopioi sen URL (esim. `https://xxx.workers.dev`).
 - Päivitä `index.md`-tiedostoon muuttuja `API_URL` vastaamaan uutta osoitettasi.
 
+### 4. Turnstile (CAPTCHA)
+
+Jotta estät roskapostin, luo ilmainen Turnstile-tili ja hanki avaimet:
+
+1. Mene osoitteeseen: [https://www.turnstile.dev/](https://www.turnstile.dev/)
+2. Rekisteröidy ja luo uusi sivu (Site).
+3. Ota talteen **Site Key** ja **Secret Key**.
+4. Lisää Workerin ympäristömuuttujat (Settings -> Variables):
+   - `TURNSTILE_SITE_KEY`: (Site Key)
+   - `TURNSTILE_SECRET_KEY`: (Secret Key)
+
 ### 5. Ylläpitopaneeli ja GitHub-kirjautuminen (OAuth)
 
 Jotta voit hallita viestejä ylläpito-osoitteessa `/admin/`, sinun on luotava GitHub OAuth App:
