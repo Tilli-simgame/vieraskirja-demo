@@ -1,4 +1,4 @@
-# Lehmuskartanon Ratsastuskoulun vieraskirja
+# Vieraskirja demo
 
 Tämä projekti on minimalistinen, Jekyll-pohjainen vieraskirjasivusto, joka käyttää Cloudflare Workersia ja D1-tietokantaa viestien tallentamiseen.
 
