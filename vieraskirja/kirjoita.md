@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Demo vieraskirja
+title: Vieraskirja Demo
 theme: muuta
 ---
 
@@ -8,7 +8,7 @@ theme: muuta
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <div class="guestbook-container">
-    <h1>Demo vieraskirja</h1>
+    <h1>Vieraskirja Demo</h1>
 
     <div class="guestbook-rules">
         <ul>
@@ -21,7 +21,7 @@ theme: muuta
     </div>
 
     <div class="gb-nav">
-        <a href="{{ '/vieraskirja.html' | relative_url }}"> Takaisin vieraskirjaan</a>
+        <a href="{{ '/' | relative_url }}"> Takaisin vieraskirjaan</a>
     </div>
 
     <div class="guestbook-form" id="gb-form">
@@ -99,7 +99,7 @@ theme: muuta
             if (!response.ok) throw new Error('Lähetys epäonnistui');
             
             formStatus.style.color = 'green';
-            formStatus.innerHTML = 'Viesti lähetetty! <br><a href="{{ "/vieraskirja.html" | relative_url }}">Palaa takaisin lukemaan viestejä tästä.</a>';
+            formStatus.innerHTML = 'Viesti lähetetty! <br><a href="{{ "/" | relative_url }}">Palaa takaisin lukemaan viestejä tästä.</a>';
             gbForm.reset();
             if (window.turnstile) window.turnstile.reset();
         } catch (err) {

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Demo vieraskirja
+title: Vieraskirja Demo
 theme: muuta
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/guestbook.css' | relative_url }}">
 
 <div class="guestbook-container">
-    <h1>Demo vieraskirja</h1>
+    <h1>Vieraskirja Demo</h1>
 
     <div class="guestbook-rules">
         <ul>

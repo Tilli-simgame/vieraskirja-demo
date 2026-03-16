@@ -39,7 +39,18 @@ Voit pystyttää vieraskirja-API:n joko komentoriviltä tai käsin.
 - Kun Worker on julkaistu, kopioi sen URL (esim. `https://xxx.workers.dev`).
 - Päivitä `index.md`-tiedostoon muuttuja `API_URL` vastaamaan uutta osoitettasi.
 
-### 4. Spämmitarkistus (Turnstile)
-- Luo Turnstile-widget Cloudflaressa.
-- Lisää **Site Key** tiedostoon `vieraskirja/kirjoita.md`.
-- Lisää **Secret Key** Workerin ympäristömuuttujaksi nimellä `TURNSTILE_SECRET_KEY`.
+### 5. Ylläpitopaneeli ja GitHub-kirjautuminen (OAuth)
+
+Jotta voit hallita viestejä ylläpito-osoitteessa `/admin/`, sinun on luotava GitHub OAuth App:
+
+1. Mene GitHubissa: **Settings** -> **Developer settings** -> **OAuth Apps** -> **New OAuth App**.
+2. Täytä tiedot:
+   - **Application name**: `Vieraskirja Demo Admin`
+   - **Homepage URL**: Sivustosi osoite (esim. `https://tilli-simgame.github.io/vieraskirja-demo/`)
+   - **Authorization callback URL**: Workerisi URL + `/api/admin/auth/github/callback`
+3. Luo sovellus ja ota talteen **Client ID** ja **Client Secret**.
+4. Lisää Workerin ympäristömuuttujat (Settings -> Variables):
+   - `GITHUB_CLIENT_ID`: (Client ID)
+   - `GITHUB_CLIENT_SECRET`: (Client Secret)
+   - `ALLOWED_GITHUB_USERS`: Oma GitHub-käyttäjänimesi (pilkulla erotettuna, jos useita)
+   - `SESSION_SECRET`: Pitkä satunnainen merkkijono istuntojen salaamiseen.
